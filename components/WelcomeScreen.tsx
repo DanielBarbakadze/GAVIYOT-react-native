@@ -1,37 +1,38 @@
 import React from "react";
 import { View, StyleSheet, Platform, StatusBar, Image } from "react-native";
-import { Text } from "react-native-svg";
 import AppButton from "./AppButton";
 import AppAnchor from "./AppAnchor";
+import Screen from "./Screen";
 
-export default function Welcome() {
+export default function WelcomeScreen() {
   return (
-    <View style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require("../assets/images/Logo.png")}
-        />
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.buttonsContainer}>
-          <AppButton title="Calculate" onPress={() => console.log("clicked")} />
-          <AppButton title="Log In" onPress={() => console.log("clicked")} />
-        </View>
-        <View style={styles.anchorContainer}>
-          <AppAnchor
-            title="Create New Account"
-            onPress={() => console.log("clicked")}
+    <Screen>
+      <View style={styles.container}>
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../assets/images/Logo.png")}
           />
         </View>
+        <View style={styles.footer}>
+          <View style={styles.buttonsContainer}>
+            <AppButton title="Calculate" onPress={() => console.log("calc")} />
+            <AppButton title="Log In" onPress={() => console.log("Log In")} />
+          </View>
+          <View style={styles.anchorContainer}>
+            <AppAnchor
+              title="Create New Account"
+              onPress={() => console.log("clicked")}
+            />
+          </View>
+        </View>
       </View>
-    </View>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    top: Platform.OS == "android" ? StatusBar.currentHeight : 0,
     flex: 1,
     height: "100%",
     marginEnd: 30,

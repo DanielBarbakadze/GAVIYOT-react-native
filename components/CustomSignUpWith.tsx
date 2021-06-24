@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import {
-  View,
-  Button,
-  StyleSheet,
-  TouchableHighlight,
-  Text,
-} from "react-native";
+import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
 import Colors from "../constants/Colors";
 
-export default function AppButton({
+import { MaterialIcons } from "@expo/vector-icons";
+
+export default function CustomSignUpWith({
   title,
   onPress,
   style,
@@ -22,8 +18,7 @@ export default function AppButton({
   return (
     <View style={[styles.buttonContainer, style]}>
       <TouchableHighlight
-        // underlayColor={Colors.primaryColor}
-        underlayColor={Colors.primaryColor}
+        underlayColor={Colors.appLightBlue}
         style={styles.button}
         onPress={() => {
           onPress(), setPress(!press);
@@ -31,9 +26,20 @@ export default function AppButton({
         onHideUnderlay={() => setPress(false)}
         onShowUnderlay={() => setPress(true)}
       >
-        <Text style={press ? styles.buttonTextPressed : styles.buttonText}>
-          {title}
-        </Text>
+        <>
+          <MaterialIcons
+            name="facebook"
+            size={48}
+            color={Colors.appBlue}
+            // color={press ? Colors.appWhite : Colors.appBlue}
+            style={styles.iconsFacebook}
+          />
+          <View style={styles.textWrapper}>
+            <Text style={press ? styles.buttonTextPressed : styles.buttonText}>
+              {title}
+            </Text>
+          </View>
+        </>
       </TouchableHighlight>
     </View>
   );
@@ -46,12 +52,13 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: Colors.white,
     borderRadius: 30,
     borderWidth: 1,
-    borderColor: Colors.primaryColor,
+    borderColor: "transparent",
 
     shadowOffset: { width: 0, height: 4 },
     shadowColor: Colors.appShadowGray,
@@ -59,9 +66,20 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: {
-    color: Colors.primaryColor,
+    color: Colors.appBlue,
   },
   buttonTextPressed: {
-    color: Colors.white,
+    // color: Colors.white,
+    color: Colors.appBlue,
+  },
+  iconsFacebook: {
+    position: "absolute",
+    fontSize: 56,
+    left: -5,
+  },
+  textWrapper: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 28,
   },
 });

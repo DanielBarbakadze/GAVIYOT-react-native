@@ -6,7 +6,6 @@ import {
   TouchableHighlight,
   Text,
 } from "react-native";
-import { LinearGradient } from "react-native-svg";
 import Colors from "../constants/Colors";
 
 export default function AppButton({
@@ -25,7 +24,8 @@ export default function AppButton({
 
 const styles = StyleSheet.create({
   aContainer: {
-    width: 130,
+    // backgroundColor: "red",
+    // width: 130,
     height: 48,
   },
   a: {
