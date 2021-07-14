@@ -14,6 +14,8 @@ const blackTransparent = "rgba(0, 0, 0, 0.5)";
 const appTextGray = "#909090";
 const appShadowGray = "#D9D9D9";
 const appBlue = "#4267B2";
+const moneyGreen = "#118C4F";
+const moneyRed = "#bd3d3a";
 
 export default {
   primaryColor,
@@ -30,6 +32,8 @@ export default {
   black,
   blackTransparent,
   appShadowGray,
+  moneyGreen,
+  moneyRed,
   light: {
     text: "#000",
     background: "#fff",

@@ -16,9 +16,11 @@ export default function AppButton({
   onPress: any;
 }) {
   return (
-    <View style={styles.aContainer}>
-      <Text style={styles.a}>{title}</Text>
-    </View>
+    <TouchableHighlight onPressIn={onPress} underlayColor={"transparent"}>
+      <View style={styles.aContainer}>
+        <Text style={styles.a}>{title}</Text>
+      </View>
+    </TouchableHighlight>
   );
 }
 
